@@ -56,7 +56,7 @@ module.exports = function() {
       .pipe(scss())
       .pipe(
         autoprefixer({
-          overrideBrowserslist: ["last 3 versions"]
+          overrideBrowserslist: ["last 16 versions"]
         })
       )
       .pipe(csscomb())

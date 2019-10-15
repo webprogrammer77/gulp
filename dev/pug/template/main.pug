@@ -15,8 +15,6 @@ html(lang="ru-RU")
 		meta(name="description" content="")
 		link(rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon")
 		link(rel="stylesheet" type='text/css' href!="static/css/styles.min.css?v=<?=md5(time())?>")
-		link(rel="stylesheet" type='text/css' href!="static/font-awesome/css/font-awesome.min.css?v=<?=md5(time())?>")
-		//- script(src="https://kit.fontawesome.com/e06a0077fb.js")
 		<!--[if lt IE 9]>
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
 		<![endif]-->
@@ -26,7 +24,6 @@ html(lang="ru-RU")
 			main.content
 				block content
 			include ../modules/footer/footer
-		script(src="static/js/jquery-3.3.1.min.js")
 		script(src!="static/js/libs.min.js?v=<?=md5(time())?>")
 		script(src!="static/js/main.min.js?v=<?=md5(time())?>")
 		block script
