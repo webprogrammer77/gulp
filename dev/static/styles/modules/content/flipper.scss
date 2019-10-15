@@ -1,0 +1,48 @@
+.flipper {
+  // width: 300px;
+  // height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.front {
+  background-color: $black;
+}
+
+.back {
+  background-color: $black;
+  transform: rotateY(-180deg);
+}
+
+.back iframe {
+  opacity: 0;
+}
+
+.flipper:hover .front {
+  transform: rotateY(-180deg);
+}
+
+.flipper:hover .back {
+  transform: rotateY(-360deg);
+}
+
+.flipper:hover .back iframe {
+  opacity: 1;
+}

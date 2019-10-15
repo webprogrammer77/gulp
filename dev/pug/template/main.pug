@@ -1,0 +1,53 @@
+include ../utils/mixins
+block variables
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		title #{title}
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->
+		base(href="")
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="keywords" content="")
+		meta(name="description" content="")
+		link(rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon")
+		link(rel="stylesheet" type='text/css' href!="static/css/styles.min.css?v=<?=md5(time())?>")
+		link(rel="stylesheet" type='text/css' href!="static/font-awesome/css/font-awesome.min.css?v=<?=md5(time())?>")
+		//- script(src="https://kit.fontawesome.com/e06a0077fb.js")
+		<!--[if lt IE 9]>
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js")
+		<![endif]-->
+	body(class=pageClass)
+		.wrapper
+			include ../modules/header/header
+			main.content
+				block content
+			include ../modules/footer/footer
+		script(src="static/js/jquery-3.3.1.min.js")
+		script(src!="static/js/libs.min.js?v=<?=md5(time())?>")
+		script(src!="static/js/main.min.js?v=<?=md5(time())?>")
+		block script
+			script(defer='').
+				function isVisible(elem) {
+				var coords = elem.getBoundingClientRect();
+				var windowHeight = document.documentElement.clientHeight;
+
+				var topVisible = coords.top > 0 && coords.top < windowHeight;
+				var bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
+				return topVisible || bottomVisible;
+				}
+				function showVisible() {
+				for (var img of document.querySelectorAll("img")) {
+				var realSrc = img.dataset.src;
+				if (!realSrc) continue;
+				if (isVisible(img)) {
+				img.src = realSrc;
+				img.dataset.src = "";
+				}
+				}
+				}
+				window.addEventListener("scroll", showVisible);
+				showVisible();

@@ -1,0 +1,332 @@
+nav.nav-header {
+	display: flex;
+	flex-direction: row;
+
+	color: $nav_color;
+
+	& > ul.nav-header__list {
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: $nav_color;
+		padding-left: 30px;
+		flex-wrap: wrap;
+		padding-right: 80px;
+
+		& > li.nav-header__item {
+			// display:flex;
+			// flex-direction:column;
+			padding: 5px;
+			padding-right: 20px;
+			transition: 0.3s;
+
+
+			& > a.nav-header__link {
+				display: flex;
+				color: $nav_color;
+				cursor: pointer;
+				position: relative;
+
+				& > i {
+					display: flex;
+					padding-right: 7px;
+					min-width: 25px;
+				}
+
+				address {
+					display: flex;
+				}
+			}
+		}
+
+
+		li.nav-header__item.active > a.nav-header__link,
+		li.nav-header__item:hover > a.nav-header__link {
+			color: $nav_color_hover;
+			margin-bottom: 0px;
+			position: relative;
+			transition: 0.3s;
+
+		}
+
+		li.nav-header__item > a.nav-header__link:before {
+			content: '';
+			display: flex;
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 0px;
+			height: 3px;
+			transition: 0.4s;
+		}
+
+		li.nav-header__item:hover > a.nav-header__link:before,
+		li.nav-header__item.active > a.nav-header__link:before {
+			background: $nav_color_hover;
+			width: 100%;
+
+		}
+	}
+}
+
+
+
+.nav-header__btn {
+	opacity: 0;
+	display: none;
+}
+
+.nav-header__btn {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.nav-header__btn>span,
+.nav-header__btn>span::before,
+.nav-header__btn>span::after {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: $burger_color;
+	transition: 0.3s;
+}
+
+.nav-header__btn>span::before {
+	content: '';
+	top: -8px;
+}
+
+.nav-header__btn>span::after {
+	content: '';
+	top: 8px;
+}
+
+.nav-header__btn.active>span {
+	transform: rotate(45deg);
+}
+
+.nav-header__btn.active>span:after {
+	top: 0;
+	transform: rotate(0);
+}
+
+.nav-header__btn.active>span:before {
+	top: 0;
+	transform: rotate(90deg);
+}
+
+@media (max-width:910px) {
+	.logo {
+		height: 100%;
+		width: 80px;
+		z-index: 100;
+	}
+
+	.header__basket-min.hide {
+		top: -100px;
+		opacity: 0;
+	}
+
+	nav.nav-header .nav-header__btn {
+		opacity: 1;
+		display: flex;
+		align-items: center;
+		position: fixed;
+		left: 150px;
+		top: 12px;
+	}
+
+	nav.nav-header > ul.nav-header__list {
+		display: none;
+	}
+
+	nav.nav-header > ul.nav-header__list.active {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		flex-wrap:nowrap;
+		top: 48px;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: $nav_mobil_bg;
+		padding-top: 20px;
+		padding-right: 30px;
+		z-index: 99;
+		height:auto;
+		overflow:auto;
+
+		& > li.nav-header__item {
+			width: 100%;
+			// height: 50px;
+			padding:20px 0;
+			border-bottom: $nav_mobil_border;
+			display: flex;
+			align-items: center;
+			text-align: left;
+		}
+	}
+}
+
+.noScroll {
+	overflow: hidden;
+}
+
+.nav-footer li {
+	padding: 5px;
+}
+
+.nav-footer a {
+	display: inline-block;
+	color: $nav_color;
+	transition: 0.3s;
+}
+
+.nav-footer a:hover {
+	color: $nav_color_hover;
+	border-bottom: 2px solid $nav_border_hover;
+	margin-bottom: -2px;
+}
+
+.nav-footer i {
+	padding-right: 7px;
+}
+
+ul.nav-footer__list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+ul.nav-footer__list li.nav-footer__item {
+	padding-right: 30px;
+}
+ul.nav-footer__list li.nav-footer__item:last-child {
+	margin-left: auto;
+}
+ul.nav-footer__list li.nav-footer__item a.nav-header__link {}
+
+nav.nav-header-top {
+	margin: auto;
+	height: 30px;
+}
+
+nav.nav-header-top a.nav-header__link {
+	font-size: .88rem;
+	color: $nav-top_color !important;
+}
+
+nav.nav-header-top a.nav-header__link:hover {
+	
+	color: $nav-top_color_hover !important;
+}
+nav.nav-header-top a.nav-header__link i {
+	display: flex;
+	min-width:25px;
+}
+
+.nav-header-top ul.nav-header__list {}
+
+nav.nav-header ul.nav-header__list li.nav-header__item.nav-header__item--mobil {
+	display: none;
+}
+
+@media (max-width:910px) {
+	nav.nav-header-top {
+		height: 0;
+	}
+
+	nav.nav-header ul.nav-header__list li.nav-header__item.nav-header__item--mobil {
+		display: flex;
+	}
+}
+
+nav.nav-header > ul.nav-header__list > li.nav-header__item.nav-header__item--parent{
+	position:relative;
+	display:flex;
+	flex-direction:column;
+	align-items:flex-start;
+	height:auto;
+	padding-right:30px;
+}
+nav.nav-header > ul.nav-header__list > li.nav-header__item.nav-header__item--parent > .nav-header__link.nav-header__sub-link:after{
+	content:"";
+	cursor:pointer;
+	position:absolute;
+	left: 105%;
+	top:2px;
+	width: 10px;
+	height: 10px;
+	border:2px solid transparent;
+	border-radius:2px;
+	border-top-color: $yellow;
+	border-right-color:$yellow;
+	transform:rotate(135deg);
+	transition:.3s;
+}
+nav.nav-header > ul.nav-header__list > li.nav-header__item.nav-header__item--parent ul.nav-header__list.nav-header__sub-list{
+
+	padding-right:30px;
+	li.nav-header__item{
+		padding: 7px;
+		a.nav-header__link{
+			color:$white;
+			i{
+				padding-right: 10px;
+			}
+		}
+	}
+	
+}
+@media(min-width:910px){
+	ul.nav-header__list.nav-header__sub-list{
+		position:absolute;
+		margin-top: 20px;
+		border-radius:4px;
+		background-color:$white;
+		box-shadow: 1px 1px 1px 1px $white;
+		z-index: 110;
+		padding: 10px;
+		li.nav-header__item.nav-header__item{
+			
+			
+			a.nav-header__link{
+				color:$black!important;
+			}
+		}
+	}
+	
+}
+li.nav-header__item.nav-header__item--parent{
+		ul.nav-header__list.nav-header__sub-list{
+			display:none;
+			overflow:hidden;
+		}
+	}
+// li.nav-header__item.nav-header__item--parent:hover,
+// li.nav-header__item.nav-header__item--parent.active{
+// 		ul.nav-header__list.nav-header__sub-list{
+// 			display:block;
+// 		}
+// }
+
+	ul.nav-header__list.nav-header__sub-list > li.nav-header__item:hover a.nav-header__link,
+	ul.nav-header__list.nav-header__sub-list > li.nav-header__item.active a.nav-header__link {
+		color: $nav_color_hover!important;
+		//text-decoration:underline!important;
+		
+
+	}
+	
+	li.nav-header__item--parent a.nav-header__sub-link.rotate:after {
+		transform:rotate(315deg)!important;
+		top:6px!important;
+		
+
+	}
