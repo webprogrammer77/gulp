@@ -5,3 +5,4 @@ dev/assets/.htaccess
 node_modules/**
 assets/**
 build/**
+yarn-error.log
