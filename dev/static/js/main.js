@@ -21,6 +21,8 @@
 // ../../../node_modules/bootstrap/js/dist/tab.js
 // ../../../node_modules/bootstrap/js/dist/toast.js
 
+//= functions.js
+
 $(function() {
   svg4everybody({});
 
