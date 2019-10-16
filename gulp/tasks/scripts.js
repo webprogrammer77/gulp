@@ -55,7 +55,8 @@ module.exports = function() {
       .src([
         scriptsPATH.input + "*.js",
         "!" + scriptsPATH.input + "libs.min.js"
-      ])
+			])
+			.pipe(rigger())
       .pipe($.gulp.dest(scriptsPATH.ouput));
   });
 
