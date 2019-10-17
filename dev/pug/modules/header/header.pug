@@ -33,3 +33,7 @@ header.header
 					a(href="#" class="nav-header__link")
 						i.fa.fa-book
 						|2
+			ul.nav-header__list
+				each item in nav.navHeader
+					li.nav-header__item
+						a(href= item.href title=item.title).nav-header__link= item.text
