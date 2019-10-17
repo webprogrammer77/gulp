@@ -39,6 +39,8 @@
   "dependencies": {
     "bootstrap": "latest",
     "font-awesome": "latest",
+    "fs": "^0.0.1-security",
+    "gulp-load-plugins": "^2.0.1",
     "gulp-rigger": "^0.5.8",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.0",
